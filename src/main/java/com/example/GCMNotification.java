@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.jivesoftware.smack.XMPPException;
+
 public class GCMNotification extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -17,9 +19,18 @@ public class GCMNotification extends HttpServlet {
 
 	// Put your Google Project number here
 	final String GOOGLE_USERNAME = "564375465724" + "@gcm.googleapis.com";
+	
+	private static SmackCcsClient client;
 
 	public GCMNotification() {
 		super();
+		client = new SmackCcsClient();
+		try {
+			client.connect(GOOGLE_USERNAME, GOOGLE_SERVER_KEY);
+		} catch (XMPPException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -37,7 +48,7 @@ public class GCMNotification extends HttpServlet {
 			String userMessage = request.getParameter("message");
 			Set<String> regIdSet = RegIdManager.readFromFile();
 			String toDeviceRegId = (String) (regIdSet.toArray())[0];
-			SmackCcsClient.sendMessage(GOOGLE_USERNAME, GOOGLE_SERVER_KEY,
+			client.sendMessage(GOOGLE_USERNAME, GOOGLE_SERVER_KEY,
 					toDeviceRegId,userMessage);
 			request.setAttribute("pushStatus", "Message Sent.");
 		} catch (IOException ioe) {
