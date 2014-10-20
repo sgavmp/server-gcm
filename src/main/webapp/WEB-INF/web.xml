@@ -11,12 +11,12 @@
     
   <servlet>
     <servlet-name>hello</servlet-name>
-    <servlet-class>com.example.HelloServlet</servlet-class>
+    <servlet-class>com.example.GCMNotification</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>hello</servlet-name>
-    <url-pattern>/hello</url-pattern>
+    <servlet-name>GCMNotification</servlet-name>
+    <url-pattern>/GCMNotification</url-pattern>
   </servlet-mapping>
 
 
