@@ -289,10 +289,10 @@ public class SmackCcsClient {
 
 		// NOTE: Set to true to launch a window with information about packets
 		// sent and received
-		config.setDebuggerEnabled(true);
+		config.setDebuggerEnabled(false);
 
 		// -Dsmack.debugEnabled=true
-		XMPPConnection.DEBUG_ENABLED = true;
+		XMPPConnection.DEBUG_ENABLED = false;
 
 		connection = new XMPPConnection(config);
 		connection.connect();
