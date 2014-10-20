@@ -10,7 +10,7 @@
     </welcome-file-list>
     
   <servlet>
-    <servlet-name>hello</servlet-name>
+    <servlet-name>GCMNotification</servlet-name>
     <servlet-class>com.example.GCMNotification</servlet-class>
   </servlet>
 
