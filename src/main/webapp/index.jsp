@@ -9,15 +9,17 @@
 	}
 %>
 <head>
-<title>Google Cloud Messaging (GCM) XMMP Server in Java</title>
+<title>Google Cloud Messaging (GCM) Server in Java</title>
 </head>
 <body>
 
-	<h1>Google Cloud Messaging (GCM) XMMP Server in Java</h1>
+	<h1>Google Cloud Messaging (GCM) Server in Java: Device to Device
+		Communication</h1>
 
-	<form action="GCMNotification" method="post">
+	<form action="GCMNotification?action=multicast" method="post">
 
 		<div>
+			<input type="hidden" name="name" value="Admin" />
 			<textarea rows="2" name="message" cols="23"
 				placeholder="Message to transmit via GCM"></textarea>
 		</div>
